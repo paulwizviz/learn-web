@@ -2,7 +2,7 @@
 
 export UI_IMAGE_NAME=paulwizviz/react-dashboard-ui
 export SERVER_IMAGE_NAME=paulwizviz/react-dashboard-server
-export IMAGE_TAG=dev
+export IMAGE_TAG=current
 
 COMMAND="$1"
 
@@ -19,6 +19,10 @@ function stop(){
     docker-compose -f ./deployments/docker-compose.yaml down
 }
 
+function status(){
+    docker ps -a
+}
+
 function clean(){
     docker-compose -f ./deployments/docker-compose.yaml down
     docker rmi -f ${UI_IMAGE_NAME}:${IMAGE_TAG}
@@ -30,16 +34,19 @@ case $COMMAND in
     "build")
         build
         ;;
+    "clean")
+        clean
+        ;;
     "run")
         run
+        ;;
+    "status")
+        status
         ;;
     "stop")
         stop
         ;;
-    "clean")
-        clean
-        ;;
     *)
-        echo "$0 [build | run | stop | clean ]"
+        echo "$0 [build | clean | run | status | stop]"
         ;;
 esac
