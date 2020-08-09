@@ -12,8 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { default as Auth } from './Auth';
 export { default as Dashboard } from './Dashboard';
-export { default as MainLayout } from './MainLayout';
-export { default as MinimalLayout } from './MinimalLayout';
 export { default as NotFound } from './NotFound';
