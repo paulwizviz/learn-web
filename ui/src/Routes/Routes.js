@@ -16,19 +16,15 @@ import React from 'react';
 import { Switch, Redirect, Route } from 'react-router-dom';
 
 import {
-    Dashboard as DashboardView,
-    NotFound as NotFoundView,
+    MainLayout as MainLayoutView,
 } from '../modules';
 
 const Routes = () => {
     return (
         <Switch>
-            <Redirect exact from="/" to="/dashboard"/>
-            <Route path="/dashboard">
-                <DashboardView/>
-            </Route>
-            <Route path="/not-found">
-                <NotFoundView/>
+            <Redirect exact from="/" to="/main"/>
+            <Route path="/main">
+                <MainLayoutView/>
             </Route>
         </Switch>
     );
