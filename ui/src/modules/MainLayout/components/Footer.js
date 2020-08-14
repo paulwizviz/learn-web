@@ -12,30 +12,37 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// React
 import React from 'react';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/styles';
+import { Typography } from '@material-ui/core';
 
-// Material ui
-import { makeStyles } from '@material-ui/core/styles';
-
-import Topbar from './Topbar';
-import Footer from './Footer';
-
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
-        flexGrow: 1,
-    },
-});
+        padding: theme.spacing(4)
+    }
+}));
 
-const MainLayout = () =>{
+const Footer = props => {
+    const { className, ...rest } = props;
+
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <Topbar />
-            <Footer />
+        <div
+            {...rest}
+            className={clsx(classes.root, className)}
+        >
+            <Typography variant="body1">
+        &copy;{' '} Paul Sitoh. 2019
+            </Typography>
         </div>
     );
 };
 
-export default MainLayout;
+Footer.propTypes = {
+    className: PropTypes.string
+};
+
+export default Footer;
