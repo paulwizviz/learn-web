@@ -1,4 +1,4 @@
-FROM node:${NODE_VERSION}
+FROM node:13.10.1
 
 WORKDIR /opt
 
