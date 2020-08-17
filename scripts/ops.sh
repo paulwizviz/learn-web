@@ -4,13 +4,8 @@ export UI_IMAGE_NAME=paulwizviz/react-dashboard-ui
 export SERVER_IMAGE_NAME=paulwizviz/react-dashboard-server
 export IMAGE_TAG=current
 
-export NODE_VERSION=13.10.1
-
 COMMAND="$1"
 
-function dep() {
-    docker run -v ${PWD}/ui:/opt -w /opt -t --rm node:${NODE_VERSION} ./dep.sh
-}
 
 function build() {
     docker build -f ./build/server.dockerfile -t ${SERVER_IMAGE_NAME}:${IMAGE_TAG} .
