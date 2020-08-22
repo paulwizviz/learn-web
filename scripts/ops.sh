@@ -1,56 +1,105 @@
 #!/bin/bash
 
-export UI_IMAGE_NAME=paulwizviz/react-dashboard-ui
-export SERVER_IMAGE_NAME=paulwizviz/react-dashboard-server
+export UI_IMAGE_DEV=paulwizviz/trg-ui-dev
+export UI_IMAGE_PROD=paulwizviz/trg-ui-prod
+export SERVER_IMAGE=paulwizviz/trg-server
 export IMAGE_TAG=current
 
 COMMAND="$1"
+SUBCOMMAND="$2"
 
+message="$0 [build [dev | prod] | clean | run [dev | prod] | status | stop]"
+
+if [ -z "$COMMAND" ]; then
+    echo $message
+    exit 1
+fi
 
 function build() {
-    docker build -f ./build/server.dockerfile -t ${SERVER_IMAGE_NAME}:${IMAGE_TAG} .
-    docker build -f ./build/ui.dockerfile -t ${UI_IMAGE_NAME}:${IMAGE_TAG} .
+    local cmd="$1"
+
+    case $cmd in
+    "dev")
+        docker build -f ./build/ui.dev.dockerfile -t ${UI_IMAGE_DEV}:${IMAGE_TAG} .
+        ;;
+    "prod")
+        docker build -f ./build/ui.prod.dockerfile -t ${UI_IMAGE_PROD}:${IMAGE_TAG} .
+        ;;
+    *)
+        echo "$0 build [dev | prod]"
+        exit 1
+        ;;
+    esac
+
+    docker build -f ./build/server.dockerfile -t ${SERVER_IMAGE}:${IMAGE_TAG} .
 }
 
 function run() {
-    docker-compose -f ./deployments/docker-compose.yaml up -d
+    local cmd="$1"
+
+    case $cmd in
+    "dev")
+        docker-compose -f ./deployments/docker-compose-dev.yaml up -d
+        ;;
+    "prod")
+        docker-compose -f ./deployments/docker-compose-prod.yaml up -d
+        ;;
+    *)
+        echo "$0 run [dev | prod]"
+        exit 1
+        ;;
+    esac
 }
 
 function stop(){
-    docker-compose -f ./deployments/docker-compose.yaml down
+    local cmd="$1"
+
+    case $cmd in
+    "dev")
+        docker-compose -f ./deployments/docker-compose-dev.yaml down
+        ;;
+    "prod")
+        docker-compose -f ./deployments/docker-compose-prod.yaml down
+        ;;
+    *)
+        echo "$0 stop [dev | prod]"
+        exit 1
+        ;;
+    esac
 }
 
 function status(){
     docker ps -a
 }
 
-function clean(){
-    docker-compose -f ./deployments/docker-compose.yaml down
-    docker rmi -f ${UI_IMAGE_NAME}:${IMAGE_TAG}
-    docker rmi -f ${SERVER_IMAGE_NAME}:${IMAGE_TAG}
+function clean(){ 
+
+    docker-compose -f ./deployments/docker-compose-dev.yaml down
+    docker-compose -f ./deployments/docker-compose-prod.yaml down
+
+    docker rmi -f ${SERVER_IMAGE}:${IMAGE_TAG}
+    docker rmi -f ${UI_IMAGE_DEV}:${IMAGE_TAG}
+    docker rmi -f ${UI_IMAGE_PROD}:${IMAGE_TAG}
     docker rmi -f $(docker images --filter "dangling=true" -q)
 }
 
 case $COMMAND in
     "build")
-        build
+        build $SUBCOMMAND
         ;;
-    "clean")
+    "clean") 
         clean
         ;;
-    "dep")
-        dep
-        ;;
     "run")
-        run
+        run $SUBCOMMAND
         ;;
     "status")
         status
         ;;
     "stop")
-        stop
+        stop $SUBCOMMAND
         ;;
     *)
-        echo "$0 [build | clean | dep | run | status | stop]"
+        echo $message
         ;;
 esac

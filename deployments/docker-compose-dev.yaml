@@ -8,30 +8,30 @@ services:
             - 80:80
         container_name: router
         environment:
-            - NOXY_DEFAULT_HOST=ui
-            - NOXY_DEFAULT_PORT=3030
+            - NOXY_DEFAULT_HOST=ui-dev
+            - NOXY_DEFAULT_PORT=3031
             - NOXY_DEFAULT_WS=1
             - NOXY_API_FRONT=/api
-            - NOXY_API_HOST=server
+            - NOXY_API_HOST=server-dev
             - NOXY_API_PORT=9000
         networks:
-            - react_dashboard_network
+            - paulwizviz_react_training_network
 
-    ui:
-        image: ${UI_IMAGE_NAME}:${IMAGE_TAG}
-        container_name: ui
+    ui-dev:
+        image: ${UI_IMAGE_DEV}:${IMAGE_TAG}
+        container_name: ui-dev
         expose:
-            - 3030
+            - 3031
         ports:
-            - 3030:3030
+            - 3031:3031
         volumes:
             - ../ui/src:/opt/src
         networks:
-            - react_dashboard_network
+            - paulwizviz_react_training_network
 
-    server:
-        image: ${SERVER_IMAGE_NAME}:${IMAGE_TAG}
-        container_name: server
+    server-dev:
+        image: ${SERVER_IMAGE}:${IMAGE_TAG}
+        container_name: server-dev
         expose:
             - 9000
         ports:
@@ -39,7 +39,7 @@ services:
         volumes: 
             - ../server/src:/opt/src
         networks:
-            - react_dashboard_network
+            - paulwizviz_react_training_network
 
 networks:
-    react_dashboard_network:
+    paulwizviz_react_training_network:

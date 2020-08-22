@@ -9,8 +9,8 @@ module.exports = {
   entry: [`@babel/polyfill`,`${SRC_DIR}/index.js`],
   output: {
     path: BUILD_DIR,
-    publicPath: '/',
-    filename: 'bundle.js',
+    //publicPath: '/',
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
@@ -23,6 +23,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({ 
+      minify: false,
       template: path.resolve(SRC_DIR,'index.html')
     }),
     new CopyPlugin({
