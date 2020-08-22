@@ -9,7 +9,7 @@ module.exports = {
   entry: [`@babel/polyfill`,`${SRC_DIR}/index.js`],
   output: {
     path: BUILD_DIR,
-    //publicPath: '/',
+    publicPath: '/',
     filename: '[name].bundle.js',
   },
   module: {
