@@ -13,14 +13,11 @@
 // limitations under the License.
 
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 
 import { ThemeProvider } from '@material-ui/styles';
-
-import { createBrowserHistory } from 'history';
-const browserHistory = createBrowserHistory();
 
 import { Routes } from '../Routes';
 import theme from './theme';
@@ -31,9 +28,9 @@ export default class App extends React.Component {
         return (
             <Provider store={store}>
                 <ThemeProvider theme={theme}>
-                    <Router history={browserHistory}>
+                    <HashRouter>
                         <Routes />
-                    </Router>
+                    </HashRouter>
                 </ThemeProvider>
             </Provider>
         );

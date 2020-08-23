@@ -26,6 +26,9 @@ const Routes = () => {
             <Route path="/main">
                 <MainLayoutView/>
             </Route>
+            <Route path="/test">
+                <h1>Hello</h1>
+            </Route>
         </Switch>
     );
 };
