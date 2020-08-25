@@ -13,33 +13,32 @@
 // limitations under the License.
 
 import React from 'react';
+
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/styles';
-import { Typography } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        padding: theme.spacing(4)
-    }
-}));
+import { ThemeProvider, createMuiTheme } from '@material-ui/core';
 
-const Footer = props => {
-    const { className } = props;
+import { blue } from '@material-ui/core/colors';
 
-    const classes = useStyles();
+const theme = createMuiTheme({
+    palette: {
+        primary: blue,
+        type: 'light'
+    },
+    typography: {
+        useNextVariants: true,
+    },
+});
 
+const BlueTheme = (props) => {
+    const { children } = props;
     return (
-        <div className={clsx(classes.root, className)}>
-            <Typography variant="body1">
-                &copy;{' '} Paul Sitoh. 2019
-            </Typography>
-        </div>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
     );
 };
 
-Footer.propTypes = {
-    className: PropTypes.string
+BlueTheme.propTypes = {
+    children: PropTypes.object
 };
 
-export default Footer;
+export default BlueTheme;

@@ -13,22 +13,15 @@
 // limitations under the License.
 
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
 
-import { Provider } from 'react-redux';
-
-import { Routes } from '../Routes';
-import { RedTheme, applyTheme } from '../Theme';
-import {store} from '../modules/store';
-
-const App = () => {
-    return (
-        <Provider store={store}>
-            <HashRouter>
-                <Routes />
-            </HashRouter>
-        </Provider>
-    );
+const applyTheme = (Theme, Component) => {
+    return (props) => {
+        return (
+            <Theme>
+                <Component {...props} />
+            </Theme>
+        );
+    };
 };
 
-export default applyTheme(RedTheme, App);
+export default applyTheme;
