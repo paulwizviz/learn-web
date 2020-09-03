@@ -12,34 +12,39 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// React
 import React from 'react';
+
+// Material-UI
+import {
+    AppBar,
+    IconButton,
+    Toolbar,
+    Typography
+} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+
+// Others
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/styles';
-import { Typography } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        padding: theme.spacing(4)
-    }
-}));
-
-const Footer = props => {
-    const { className } = props;
-
-    const classes = useStyles();
+const Topbar = (props) => {
+    
+    const {className} = props;
 
     return (
-        <div className={clsx(classes.root, className)}>
-            <Typography variant="body1">
-                &copy;{' '} Paul Sitoh. 2019
-            </Typography>
-        </div>
+        <AppBar className={className} position="static">
+            <Toolbar>
+                <IconButton>
+                    <MenuIcon />
+                </IconButton>
+                <Typography>News</Typography>
+            </Toolbar>
+        </AppBar>
     );
 };
 
-Footer.propTypes = {
-    className: PropTypes.string
+Topbar.propTypes = {
+    className: PropTypes.string,
 };
 
-export default Footer;
+export default Topbar;

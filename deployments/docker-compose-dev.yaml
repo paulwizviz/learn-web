@@ -26,6 +26,11 @@ services:
             - 3031:3031
         volumes:
             - ../ui/src:/opt/src
+            - ../ui/webpack:/opt/webpack
+            - ../ui/.babelrc:/opt/.babelrc
+            - ../ui/images:/opt/images
+            - ../ui/.eslintrc.json:/opt/.eslintrc.json
+
         networks:
             - paulwizviz_react_training_network
 

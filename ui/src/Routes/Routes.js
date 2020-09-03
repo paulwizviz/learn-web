@@ -13,23 +13,24 @@
 // limitations under the License.
 
 import React from 'react';
-import { Switch, Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 
 import {
-    MainLayout as MainLayoutView,
+    Dashboard as DashboardComponent,
+    MainLayout,
 } from '../modules';
+
+import RouteWithLayout from './RouteWithLayout';
+
 
 const Routes = () => {
     return (
-        <Switch>
-            <Redirect exact from="/" to="/main"/>
-            <Route path="/main">
-                <MainLayoutView/>
-            </Route>
-            <Route path="/test">
-                <h1>Hello</h1>
-            </Route>
-        </Switch>
+        <Router>
+            <Switch>
+                <Redirect exact from="/" to="/main"/>
+                <RouteWithLayout component={DashboardComponent} exact layout={MainLayout} path="/main"/>
+            </Switch>
+        </Router>
     );
 };
 

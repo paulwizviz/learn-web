@@ -15,27 +15,25 @@
 // React
 import React from 'react';
 
-// Material ui
-import { makeStyles } from '@material-ui/core/styles';
+// Others
+import PropTypes from 'prop-types';
 
-import Topbar from './Topbar';
-import Footer from './Footer';
+// Materials UI
+import Drawer from '@material-ui/core/Drawer';
 
-const useStyles = makeStyles({
-    root: {
-        flexGrow: 1,
-    },
-});
-
-const MainLayout = () =>{
-    const classes = useStyles();
+const SideBar = () => {
 
     return (
-        <div className={classes.root}>
-            <Topbar />
-            <Footer />
-        </div>
+        <Drawer>
+           
+        </Drawer>
     );
+    
 };
 
-export default MainLayout;
+SideBar.propTypes = {
+    className: PropTypes.string,
+    open: PropTypes.bool
+};
+
+export default SideBar;

@@ -18,12 +18,15 @@ import PropTypes from 'prop-types';
 
 import { ThemeProvider, createMuiTheme } from '@material-ui/core';
 
-import { blue } from '@material-ui/core/colors';
+import { blue, red } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
     palette: {
         primary: blue,
-        type: 'light'
+        type: 'light',
+        text: {
+            primary: red,
+        },
     },
     typography: {
         useNextVariants: true,

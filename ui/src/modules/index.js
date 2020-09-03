@@ -12,4 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+export { default as Dashboard } from './Dashboard'; 
 export { default as MainLayout } from './MainLayout';
