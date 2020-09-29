@@ -31,6 +31,7 @@ import {
 
 // Projects
 import Topbar from './Topbar';
+import Sidebar from './Sidebar';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,12 +42,14 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     shiftContent:{
-        paddingLeft: 240
+        paddingLeft: '100px'
     },
     content:{
-        height: '100%'
+        height: '100%',
+        paddingLeft: 300
     }
 }));
+
 
 const MainLayout = (props) =>{
     const classes = useStyles();
@@ -57,6 +60,7 @@ const MainLayout = (props) =>{
         defaultMatches: true
     });
 
+    console.log(isDesktop);
 
     return (
         <div 
@@ -66,7 +70,8 @@ const MainLayout = (props) =>{
             })}
         >
             <Topbar/>
-            <main>{ children }</main>
+            <Sidebar />
+            <main className={classes.shiftContent}>{ children }</main>
         </div>
     );
 };

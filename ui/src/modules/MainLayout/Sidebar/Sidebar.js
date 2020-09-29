@@ -14,18 +14,66 @@
 
 // React
 import React from 'react';
+import { withRouter } from 'react-router';
 
 // Others
 import PropTypes from 'prop-types';
 
-// Materials UI
+// Materials UI core
 import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+
+// Material-ui icon
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+
+// Material UI styles
+import {makeStyles} from '@material-ui/core/styles';
+
+// Body code
+const useStyles = makeStyles(()=> ({
+    drawer: {
+        width: '100px',
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: '100px',
+    },
+}));
+
+const navigationItems = [
+    {
+        text: 'access',
+        icon: <AccessTimeIcon/>
+    }
+];
+
 
 const SideBar = () => {
 
+    const classes = useStyles();
     return (
-        <Drawer>
-           
+        <Drawer className={classes.drawer} 
+            // classes={{
+            //     paper: classes.drawerPaper,
+            // }} 
+            variant='permanent'>
+            <List>
+                {
+                    navigationItems.map((item,index)=>{
+                        return(
+                            <ListItem key={index}>
+                                <ListItemIcon>{item.icon}</ListItemIcon>
+                                <ListItemText>{item.text}</ListItemText>
+                            </ListItem>
+                        );
+                    })
+                }
+            </List>
+            <Divider/>
         </Drawer>
     );
     
@@ -36,4 +84,4 @@ SideBar.propTypes = {
     open: PropTypes.bool
 };
 
-export default SideBar;
+export default withRouter(SideBar);
