@@ -8,7 +8,7 @@ COMMAND="$1"
 
 function build() {
     #docker build -f ./build/ui.dockerfile -t ${UI_IMAGE}:${IMAGE_TAG} .
-    docker-compose -f ./deployments/docker-compose.yaml build
+    docker-compose -f ./deployments/docker-compose.yaml build server
     # docker build -f ./build/server.dockerfile -t ${SERVER_IMAGE}:${IMAGE_TAG} .
 }
 

@@ -18,10 +18,7 @@ services:
             - paulwizviz_react_training_network
 
     ui:
-        build:
-            context: ../
-            dockerfile: ./build/ui.dockerfile
-        image: ${UI_IMAGE}:${IMAGE_TAG}
+        image: node:13.10.1
         container_name: ui-dev
         expose:
             - 3031
@@ -33,6 +30,10 @@ services:
             - ../ui/webpack:/opt/webpack
             - ../ui/.babelrc:/opt/.babelrc
             - ../ui/.eslintrc.json:/opt/.eslintrc.json
+            - ../ui/package-lock.json:/opt/package-lock.json
+            - ../ui/package.json:/opt/package.json
+        working_dir: /opt
+        command: ["npm", "run", "dev"]
         networks:
             - paulwizviz_react_training_network
 
