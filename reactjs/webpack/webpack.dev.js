@@ -9,7 +9,7 @@ const devConfig = {
     devServer: {
         host: '0.0.0.0',
         contentBase: commonConfig.output.path,
-        port: 3031,
+        port: 3030,
         historyApiFallback: true
     },
     module: {

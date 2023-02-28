@@ -18,7 +18,7 @@ import { BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 import {
     Dashboard as DashboardComponent,
     MainLayout,
-} from '../modules';
+} from '../pages';
 
 import RouteWithLayout from './RouteWithLayout';
 

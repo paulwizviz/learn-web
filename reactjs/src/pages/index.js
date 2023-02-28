@@ -13,4 +13,5 @@
 // limitations under the License.
 
 
-export { default } from './Dashboard';
+export { default as Dashboard } from './Dashboard';
+export { default as MainLayout } from './MainLayout';

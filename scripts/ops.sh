@@ -1,15 +1,14 @@
 #!/bin/bash
 
-export UI_IMAGE=paulwizviz/trg-ui-dev
-export SERVER_IMAGE=paulwizviz/trg-server
-export IMAGE_TAG=current
+export REACTJS_IMAGE=learn-js/reactjs:current
+export EXPRESS_IMAGE=learn-js/express:current
+
+export NETWORK_NAME=lean-web_trg-network
 
 COMMAND="$1"
 
 function build() {
-    #docker build -f ./build/ui.dockerfile -t ${UI_IMAGE}:${IMAGE_TAG} .
-    docker-compose -f ./deployments/docker-compose.yaml build server
-    # docker build -f ./build/server.dockerfile -t ${SERVER_IMAGE}:${IMAGE_TAG} .
+    docker-compose -f ./build/docker-compose.yaml build
 }
 
 function run() {
@@ -28,8 +27,9 @@ function clean(){
 
     docker-compose -f ./deployments/docker-compose.yaml down
 
-    docker rmi -f ${UI_IMAGE}:${IMAGE_TAG}
-    docker rmi -f ${SERVER_IMAGE}:${IMAGE_TAG}
+    docker rmi -f binocarlos/noxy:latest
+    docker rmi -f ${REACTJS_IMAGE}
+    docker rmi -f ${EXPRESS_IMAGE}
     docker rmi -f $(docker images --filter "dangling=true" -q)
 }
 
