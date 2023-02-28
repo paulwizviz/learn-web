@@ -4,6 +4,7 @@ This project contain working examples to illustrate techniques to create web pro
 
 ## Topics
 
+* DOM
 * Express
 * ReactJS
 
