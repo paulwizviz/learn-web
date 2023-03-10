@@ -30,8 +30,9 @@ import {
 } from '@material-ui/core';
 
 // Projects
-import Topbar from './Topbar';
-import Sidebar from './Sidebar';
+import { 
+    Topbar
+} from '../components';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -65,12 +66,11 @@ const MainLayout = (props) =>{
     return (
         <div 
             className={clsx({
-                [classes.root]: true,
-                [classes.shiftContest]: isDesktop
+                [classes.root]: true, // always applies this CSS
+                [classes.shiftContest]: isDesktop // applied on when it is a desktop
             })}
         >
             <Topbar/>
-            <Sidebar />
             <main className={classes.shiftContent}>{ children }</main>
         </div>
     );

@@ -60,7 +60,8 @@ const SideBar = () => {
             // classes={{
             //     paper: classes.drawerPaper,
             // }} 
-            variant='permanent'>
+            //variant='permanent'
+        >
             <List>
                 {
                     navigationItems.map((item,index)=>{
