@@ -7,6 +7,7 @@ This project contain working examples to illustrate techniques to create web pro
 * DOM
 * Express
 * [ReactJS](./docs/reactjs.md)
+* [Webpack](./docs/webpack.md)
 
 ## Disclaimer
 
