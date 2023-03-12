@@ -19,7 +19,6 @@ import React from 'react';
 import {
     AppBar,
     Box,
-    //Button,
     IconButton,
     Toolbar,
     Typography
@@ -34,7 +33,7 @@ const Topbar = () => {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar >
+            <AppBar>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -43,11 +42,11 @@ const Topbar = () => {
                         aria-label="menu"
                         sx={{ mr: 2 }}
                     >
+                        <img src="./assets/logos/hamburger.png" width="20px" height="20px"/>
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+                        News
                     </Typography>
-                    {/* <Button color="inherit">Login</Button> */}
                 </Toolbar>
             </AppBar>
         </Box>
