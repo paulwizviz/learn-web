@@ -14,19 +14,18 @@
 
 // React components
 import React from 'react';
+import { Provider } from 'react-redux';
 
-import {
-    Topbar,
-    Body
-} from '../components';
+import Routes from './Routes';
+import store from './store';
+import { BlueTheme, applyTheme } from '../Theme';
 
 const App = () => {
     return (
-        <div>
-            <Topbar />
-            <Body />
-        </div>
+        <Provider store={store}>
+            <Routes />
+        </Provider>
     );
 };
 
-export default App;
+export default applyTheme(BlueTheme, App);

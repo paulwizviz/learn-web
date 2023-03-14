@@ -12,21 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// React components
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-import {
-    Topbar,
-    Body
-} from '../components';
+import {App} from './App';
 
-const App = () => {
-    return (
-        <div>
-            <Topbar />
-            <Body />
-        </div>
-    );
-};
-
-export default App;
+ReactDOM.render(<App/>, document.getElementById('app'));

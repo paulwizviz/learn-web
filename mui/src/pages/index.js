@@ -12,21 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// React components
-import React from 'react';
 
-import {
-    Topbar,
-    Body
-} from '../components';
-
-const App = () => {
-    return (
-        <div>
-            <Topbar />
-            <Body />
-        </div>
-    );
-};
-
-export default App;
+export { default as Dashboard } from './Dashboard';
+export { default as MainLayout } from './MainLayout';
