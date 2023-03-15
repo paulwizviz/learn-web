@@ -1,9 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Topbar = () => {
+const Topbar = ({ style }) => {
+
     return (
-        <h1>Topbar</h1>
+        <div style={style.root}>
+            <h1>Topbar</h1>
+        </div>
     );
+};
+
+Topbar.propTypes = {
+    style: PropTypes.object
 };
 
 export default Topbar;

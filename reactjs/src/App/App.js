@@ -14,17 +14,29 @@
 
 // React components
 import React from 'react';
+import {
+    BrowserRouter as Router
+} from 'react-router-dom';
 
 import {
-    Topbar,
-    Body
-} from '../components';
+    MainLayout,
+    Dashboard,
+} from '../pages';
 
 const App = () => {
+    const mystyle={
+        root:{
+            backgroundColor:'Red'
+        }
+    };
+
     return (
         <div>
-            <Topbar />
-            <Body />
+            <Router>
+                <MainLayout style={mystyle}>
+                    <Dashboard/>
+                </MainLayout>
+            </Router>
         </div>
     );
 };
