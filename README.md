@@ -6,6 +6,7 @@ This project contain working examples to illustrate techniques to create web pro
 
 * DOM
 * Express
+* [Materials UI](./docs/mui.md)
 * [ReactJS](./docs/reactjs.md)
 * [Webpack](./docs/webpack.md)
 
