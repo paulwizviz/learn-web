@@ -14,3 +14,4 @@ This example demonstrates the use of React Hooks and routes.
 * [Introduction to React Hooks](https://reactjs.org/docs/hooks-intro.html)
 * [React Redux](https://react-redux.js.org/)
 * [React Hooks vs Redux for State Management in 2021](https://www.framelessgrid.com/react-hooks-vs-redux-for-state-management-in-2021/)
+* [Structuring project](https://blog.webdevsimplified.com/2022-07/react-folder-structure/)
