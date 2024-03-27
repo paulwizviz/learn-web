@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>HTMX page</title>
+</head>
+<script src="htmx.min.js"></script>
+<script src="https://unpkg.com/htmx.org@1.9.11/dist/ext/json-enc.js"></script>
+<body>
+  <button hx-get="/test" hx-target="#display" hx-swap="innerHTML">
+    Click Me!
+  </button>
+  <div id="display" />
+  </br>
+  <form hx-post="/data" 
+        hx-ext='json-enc'>
+    <input id="name" name="name" type="text" hx-trigger="change" hx-sync="closest form:abort">
+    <input id="surname" name="surname" type="text" hx-trigger="change" hx-sync="closest form:abort">
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>

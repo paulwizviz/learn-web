@@ -1,62 +1,43 @@
 #!/bin/bash
 
-export REACTJS_IMAGE=learn-js/reactjs:current
-export EXPRESS_IMAGE=learn-js/express:current
+export REACTJS_IMAGE=learn-web/reactjs:current
+export EXPRESS_IMAGE=learn-web/express:current
+export HTMX_IMAGE=learn-web/htmx:current
 
 export NETWORK_NAME=lean-web_trg-network
 
 COMMAND="$1"
 
-function build() {
-    docker-compose -f ./build/docker-compose.yaml build
-}
-
-function run() {
-    docker-compose -f ./deployments/docker-compose.yaml up -d
-}
-
-function stop(){
-    docker-compose -f ./deployments/docker-compose.yaml down
-}
-
-function status(){
-    docker ps -a
-}
-
-function clean(){ 
-
-    docker-compose -f ./deployments/docker-compose.yaml down
-
-    docker rmi -f binocarlos/noxy:latest
-    docker rmi -f ${REACTJS_IMAGE}
-    docker rmi -f ${EXPRESS_IMAGE}
-    docker rmi -f $(docker images --filter "dangling=true" -q)
-}
-
-message="$0 build | clean | run | status | stop"
-
-if [ "$#" != 1 ]; then
-    echo $message 
-    exit 1
-fi
-
 case $COMMAND in
     "build")
-        build
+        docker-compose -f ./build/docker-compose.yaml build
         ;;
     "clean") 
-        clean
+        docker-compose -f ./deployments/docker-compose.yaml down
+        docker network rm -f ${NETWORK_NAME}
+        docker rmi -f binocarlos/noxy:latest
+        docker rmi -f ${HTMX_IMAGE}
+        docker rmi -f ${REACTJS_IMAGE}
+        docker rmi -f ${EXPRESS_IMAGE}
+        docker rmi -f $(docker images --filter "dangling=true" -q)
         ;;
     "run")
-        run
+        docker-compose -f ./deployments/docker-compose.yaml up -d
         ;;
     "status")
-        status
+        docker ps -a
         ;;
     "stop")
-        stop
+        docker-compose -f ./deployments/docker-compose.yaml down
         ;;
     *)
-        echo $message
+        echo "$0 build | clean | run | status | stop
+Command:
+   build    images
+   clean    reset network
+   run      start network
+   status   of network
+   stop     running network
+"
         ;;
 esac

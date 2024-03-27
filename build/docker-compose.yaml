@@ -8,7 +8,7 @@ services:
       dockerfile: ./build/reactjs.dockerfile
       args:
         NODE_VER: 13.10.1
-    image: ${REACTJS_IMAGE:-learn-js/reactjs:current}
+    image: ${REACTJS_IMAGE:-learn-web/reactjs:current}
 
   express:
     build:
@@ -16,4 +16,10 @@ services:
       dockerfile: ./build/express.dockerfile
       args:
         NODE_VER: 13.10.1
-    image: ${EXPRESS_IMAGE:-learn-js/express:current}
+    image: ${EXPRESS_IMAGE:-learn-web/express:current}
+
+  htmx:
+    build:
+      context: ../
+      dockerfile: ./build/htmx.dockerfile
+    image: ${HTMX_IMAGE:-learn-web/htmx:current}
