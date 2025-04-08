@@ -1,6 +1,10 @@
 # HTMX
 
-This section discuss HTMX
+This discuss aspects HTMX
+
+## Working example
+
+* [go-htmx](../htmx/ex1/main.go)
 
 ## References
 

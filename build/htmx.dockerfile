@@ -2,8 +2,7 @@ FROM golang:alpine3.19 AS builder
 
 WORKDIR /opt
 
-COPY ./cmd ./cmd
-COPY ./htmx ./cmd/htmx
+COPY ./htmx/ex1 ./cmd/htmx
 COPY ./go.mod ./go.mod
 # COPY ./go.sum ./go.sum
 
