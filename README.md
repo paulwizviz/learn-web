@@ -4,12 +4,10 @@ This project contain working examples to illustrate techniques to create web pro
 
 ## Topics
 
-* DOM
-* Express
+* [DOM](./docs/dom.md)
+* [HTML and CSS](./docs/html.md)
 * [HTMX](./docs/htmx.md)
-* [Materials UI](./docs/mui.md)
-* [ReactJS](./docs/reactjs.md)
-* [Webpack](./docs/webpack.md)
+
 
 ## Disclaimer
 
