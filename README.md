@@ -1,6 +1,6 @@
 # Overview
 
-This project contain working examples to illustrate techniques to create web projects using html/dom, Javascript and related Javascript frameworks.
+This project contain working examples to illustrate techniques to work with web elements.
 
 ## Topics
 
