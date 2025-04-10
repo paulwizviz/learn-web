@@ -6,6 +6,14 @@ This section discuss web pages based on direct DOM manipulation.
 
 To run the working examples open via a browser the file `index.html` under the `dom` package.
 
+### Bundling
+
+This example demonstrate the offloading of DOM methods to a separate package. Here is the [working example](../dom/bundle/index.html)
+
+### Event
+
+This example demonstrate event handling `onClick`. Here is the [working example](../dom/event/index.html)
+
 ### InnerHTML vs OuterHTML
 
 | Feature | innerHTML | outerHTML |
@@ -21,10 +29,6 @@ The [innerHTML example](../dom/inner/index.html) and the result is as follows:
 The [outerHTML example](../dom/inner/index.html) and the result is as follows:
 
 ![img outerHTML](../assets/img/outerHTML.png)
-
-### Bundling
-
-This example demonstrate the offloading of DOM methods to a separate package. Here is the [working example](../dom/bundle/index.html)
 
 ## References
 
