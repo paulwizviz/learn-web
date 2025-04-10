@@ -30,6 +30,14 @@ The [outerHTML example](../dom/inner/index.html) and the result is as follows:
 
 ![img outerHTML](../assets/img/outerHTML.png)
 
+### Navigator
+
+This [example](../dom/navigation/index.html) demonstrates technique to access DOM elements.
+
+### Selector
+
+This [example](../dom/selector/index.html) demonstrates technique to query class elements.
+
 ## References
 
 * [w3schools HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)

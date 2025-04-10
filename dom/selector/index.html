@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>CSS Example 3</title>
+    </head>
+    <body>
+        <div class="notification success">Message sent!</div>
+        <div class="notification error">Something went wrong.</div>
+        <div id="item"></div>
+
+        <script>
+            let s = ''
+            const notifications = document.querySelectorAll('.notification');
+            notifications.forEach(notification => {
+                s = s + notification.innerHTML
+            });
+            document.getElementById("item").innerHTML = s
+        </script>
+    </body>
+</html>
