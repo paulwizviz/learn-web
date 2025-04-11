@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example 1</title>
+</head>
+<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+<body>
+    <div id="parent-div">
+        <button hx-get="/clicked">
+            Get
+        </button></div><br>
+        <button hx-post="/clicked"
+                hx-vals='{"status": "pending", "priority": "high"}'>
+            POST something
+        </button>
+        <form hx-put="/clicked">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" value="My Message"><br><br>
+            <label for="content">Content:</label><br>
+            <textarea id="content" name="content">This is the message body.</textarea><br><br>
+            <button type="submit">Put To Messages</button>
+        </form>
+    </div>
+</body>
+</html>

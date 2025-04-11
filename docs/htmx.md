@@ -8,11 +8,15 @@ Here are list of working examples. Accompanying the HMTL is a Go implementation 
 
 ### Example 1
 
-This is an example of a HTMX with a single button when clicked perform a GET call to an endpoint `/clicked`. The HTMX dependency provided via CDN in the <script> tag. The HTMX is [here](../htmx/ex1/index.html).
+This is an [example](../htmx/ex1/index.html) of a HTMX with a single button when clicked perform a GET call to an endpoint `/clicked`. The HTMX dependency provided via CDN in the <script> tag.
 
 ### Example 2
 
-This example demonstrates HTMX tabs. The HTMX is [here](../htmx/ex2/index.html). The HTMX dependency is download to the server and serverd from `/static/htmx.min.js` endpoint.
+This [example](../htmx/ex2/index.html) demonstrates HTMX tabs. The HTMX dependency is download to the server and serverd from `/static/htmx.min.js` endpoint.
+
+### Example 3
+
+This [example](../htmx/ex3/index.html) demonstrates AJAX related operations (GET, POST, PUT, etc).
 
 ## References
 
