@@ -8,6 +8,11 @@ This project contain working examples to illustrate techniques to work with web 
 * [HTML and CSS](./docs/html.md)
 * [HTMX](./docs/htmx.md)
 
+## Related Projects
+
+* [Go Web](https://github.com/paulwizviz/go-web.git)
+* [Go HTMX](https://github.com/paulwizviz/go-htmx.git)
+* [Learn Javascript](https://github.com/paulwizviz/learn-javascript)
 
 ## Disclaimer
 
