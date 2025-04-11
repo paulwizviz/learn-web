@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example 4</title>
+</head>
+<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+<body>
+    <div id="live-data"></div>
+
+    <script>
+        setInterval(() => {
+            htmx.ajax('GET', '/time', '#live-data');
+        }, 1000); // Fetch and update every second
+    </script>
+</body>
+</html>

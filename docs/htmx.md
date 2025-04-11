@@ -16,7 +16,11 @@ This [example](../htmx/ex2/index.html) demonstrates HTMX tabs. The HTMX dependen
 
 ### Example 3
 
-This [example](../htmx/ex3/index.html) demonstrates AJAX related operations (GET, POST, PUT, etc).
+This [example](../htmx/ex3/index.html) demonstrates HTTP operations (GET, POST, PUT, etc).
+
+### Example 4
+
+This [example](../htmx/ex4/index.html) demonstrates HTMX Ajax operations.
 
 ## References
 
