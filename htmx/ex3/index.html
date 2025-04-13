@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Example 1</title>
+    <title>Example 3</title>
 </head>
-<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
 <body>
     <div id="parent-div">
+        <h1>Get</h1>
         <button hx-get="/clicked">
             Get
-        </button></div><br>
+        </button>
+        <h1>Post</h1>
         <button hx-post="/clicked"
                 hx-vals='{"status": "pending", "priority": "high"}'>
             POST something
         </button>
+        <h1>Put</h1>
         <form hx-put="/clicked">
             <label for="title">Title:</label><br>
             <input type="text" id="title" name="title" value="My Message"><br><br>
             <label for="content">Content:</label><br>
             <textarea id="content" name="content">This is the message body.</textarea><br><br>
             <button type="submit">Put To Messages</button>
+        </form>
+        <h1>JSON</h1>
+        <form hx-post="/json" hx-ext="json-enc">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age"><br><br>
+            <label for="hobbies">Hobbies:</label>
+            <input type="checkbox" name="hobbies" value="reading"> Reading
+            <input type="checkbox" name="hobbies" value="hiking"> Hiking
+            <input type="checkbox" name="hobbies" value="coding"> Coding<br><br>
+            <button type="submit">Submit as JSON</button>
         </form>
     </div>
 </body>

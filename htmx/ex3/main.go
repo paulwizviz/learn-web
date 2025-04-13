@@ -39,6 +39,7 @@ func main() {
 	mux.HandleFunc("GET /clicked", getHandler)
 	mux.HandleFunc("POST /clicked", bodyHandler)
 	mux.HandleFunc("PUT /clicked", bodyHandler)
+	mux.HandleFunc("POST /json", bodyHandler)
 
 	log.Printf("Starting web %s", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf("0.0.0.0:%s", port), mux))
