@@ -18,3 +18,4 @@ This [example](../html/ex2/index.html) demonstrates style dependencies on extern
 
 * [w3school HTML documentation](https://www.w3schools.com/html/default.asp)
 * [w3school CSS documentation](https://www.w3schools.com/css/default.asp)
+* [w3school html tags](https://www.w3schools.com/tags/)
