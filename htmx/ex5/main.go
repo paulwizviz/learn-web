@@ -11,11 +11,6 @@ import (
 //go:embed index.html
 var web embed.FS
 
-func getHandler(rw http.ResponseWriter, r *http.Request) {
-	log.Println(r.URL)
-	rw.WriteHeader(http.StatusOK)
-}
-
 func bodyHandler(rw http.ResponseWriter, r *http.Request) {
 	log.Println("Method: ", r.Method)
 
