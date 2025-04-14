@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example 3</title>
+</head>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+<body>
+    <div id="parent-div">
+        <h1>--hx-ext="json-enc"-----</h1>
+        <form hx-post="/json/1" hx-ext="json-enc">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age"><br><br>
+            <label for="hobbies">Hobbies:</label>
+            <input type="checkbox" name="hobbies" value="reading"> Reading
+            <input type="checkbox" name="hobbies" value="hiking"> Hiking
+            <input type="checkbox" name="hobbies" value="coding"> Coding<br><br>
+            <button type="submit">Submit as JSON</button>
+        </form>
+        <h1>--hx-extension="json-enc"----</h1>
+        <form hx-post="/json/2" hx-extension="json-enc">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age"><br><br>
+            <label for="hobbies">Hobbies:</label>
+            <input type="checkbox" name="hobbies" value="reading"> Reading
+            <input type="checkbox" name="hobbies" value="hiking"> Hiking
+            <input type="checkbox" name="hobbies" value="coding"> Coding<br><br>
+            <button type="submit">Submit as JSON</button>
+        </form>
+    </div>
+</body>
+</html>

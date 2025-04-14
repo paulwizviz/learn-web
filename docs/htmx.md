@@ -20,8 +20,13 @@ This [example](../htmx/ex3/index.html) demonstrates HTTP operations (GET, POST, 
 
 ### Example 4
 
-This [example](../htmx/ex4/index.html) demonstrates HTMX Ajax operations.
+This [example](../htmx/ex4/index.html) demonstrates HTMX Ajax operations. 
+
+### Example 5
+
+This [example](../htmx/ex5/index.html) demonstrates JSON based request.
 
 ## References
 
 * [Official documentation](https://htmx.org/docs/)
+* [Official AJAX API](https://htmx.org/api/)
