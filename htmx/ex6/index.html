@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example 3</title>
+</head>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+<body>
+    <div id="user-info"></div>
+    <button hx-get="/api/user" hx-target="#user-info" hx-swap="innerHTML">Get User Info</button>
+
+    <script>
+        document.addEventListener('htmx:afterSwap', function(event) {
+          if (event.target.id === 'user-info' && event.detail.responseURL.includes('/api/user')) {
+            try {
+              const userData = JSON.parse(event.detail.response);
+              const html = `
+                <p>Name: ${userData.name}</p>
+                <p>Age: ${userData.age}</p>
+              `;
+              document.getElementById('user-info').innerHTML = html;
+            } catch (error) {
+              console.error('Error parsing JSON:', error);
+              document.getElementById('user-info').textContent = 'Error loading user data.';
+            }
+          }
+        });
+      </script>
+
+</body>
+</html>
