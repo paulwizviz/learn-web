@@ -6,13 +6,17 @@ This section discuss HTML and CSS artefacts.
 
 To run the working examples open via a browser the file `index.html` under the `html` package.
 
-### Inline css
+### Example 1
 
 This [example](../html/ex1/index.html) demonstrates inline CSS.
 
-### Linked styles
+### Example 2
 
 This [example](../html/ex2/index.html) demonstrates style dependencies on external css file.
+
+### Example 3
+
+This [Example](../html/ex3/index.html) demonstrates event handling via scripts and inline.
 
 ## References
 

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>CSS Example 3</title>
+        <style>
+            p {
+              color: red;
+              text-align: center;
+            }
+            h1 {
+                color: blue;
+                text-align: center;
+            }
+            #para1 {
+                color: blueviolet;
+                text-align: center;
+            }
+            </style>
+    </head>
+    <body>
+        <p id="demo1" onclick="myFunction()">Clicked me to change style</p>
+        <p id="demo2" onclick="document.getElementById('demo2').style.color = 'green';
+            document.getElementById('demo2').style.fontSize = '30px';
+            document.getElementById('demo2').style.textAlign = 'left';">Clicked me to change style</p>
+
+        <script>
+            function myFunction() {
+                document.getElementById("demo1").style.color = "blue";
+                document.getElementById("demo1").style.fontSize = "25px";
+        }
+        </script>
+
+    </body>
+</html>
